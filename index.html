@@ -1,0 +1,343 @@
+
+<html>
+	<head>
+		
+		<title> Playing with Boxes ! </title>
+		<link rel="stylesheet" href="styling.css">
+	</head>
+	<body>
+		
+			<div id="longbox">
+				<div id="colors">
+					<img src="./img/r.png" width="24%" height="30%" onClick="red1();">
+					<img src="./img/g.png" width="24%" height="30%" onClick="green1();">
+					<img src="./img/b.png" width="24%" height="30%" onClick="blue1();">
+				</div>
+				<div id="arrows">
+					<div id="left">
+						<img src="./img/left.png" width="22%" height="90%" onClick="left();">
+						<img src="./img/right.png" width="22%" height="90%" onClick="right();">					
+					</div>
+					<div id="up">
+						<img src="./img/up.png" width="22%" height="90%" onClick="up();">
+						<img src="./img/down.png" width="22%" height="90%" onClick="down();">	
+					</div>
+				</div>
+		    </div>
+				<div id="box1">
+					<div id="colors">
+						<img src="./img/r.png" width="15%" height="50%" onClick="red2();">
+						<img src="./img/g.png" width="15%" height="50%" onClick="green2();">
+						<img src="./img/b.png" width="15%" height="50%" onClick="blue2();">
+					</div>
+					<div id="arrows">
+						<img src="./img/up.png" width="70%" height="40%" onClick="move(1);">
+						<img src="./img/down.png" width="70%" height="40%" onClick="move(4);">	
+					</div>
+				</div>
+				<div id="box2">
+					<div id="colors">
+						<img src="./img/r.png" width="15%" height="50%" onClick="red3();">
+						<img src="./img/g.png" width="15%" height="50%"  onClick="green3();">
+						<img src="./img/b.png" width="15%" height="50%"  onClick="blue3();">
+					</div>
+					<div id="arrows">
+						<img src="./img/up.png" width="70%" height="40%" onClick="move(2);">
+						<img src="./img/down.png" width="70%" height="40%" onClick="move(5);">	
+					</div>
+				</div>
+				<div id="box3">
+					<div id="colors">
+						<img src="./img/r.png" width="15%" height="50%" onClick="red4();">
+						<img src="./img/g.png" width="15%" height="50%" onClick="green4();">
+						<img src="./img/b.png" width="15%" height="50%" onClick="blue4();">
+					</div>
+					<div id="arrows">
+						<img src="./img/up.png" width="70%" height="40%" onClick="move(3);">
+						<img src="./img/down.png" width="70%" height="40%" onClick="move(6);" >	
+					</div>
+				</div>
+			
+	
+		<script type="text/javascript">
+/*----------------------------------------------------RED--------------*/
+			function red1(){
+				document.getElementById('longbox').style.backgroundColor="red";
+			}
+			function red2(){
+				document.getElementById('box1').style.backgroundColor="red";
+			}
+			function red3(){
+				document.getElementById('box2').style.backgroundColor="red";
+			}
+			function red4(){
+				document.getElementById('box3').style.backgroundColor="red";
+			}
+/*------------------------------------------GREEN--------------*/		
+			function green1(){
+				document.getElementById('longbox').style.backgroundColor="green";
+			}
+			function green2(){
+				document.getElementById('box1').style.backgroundColor="green";
+			}
+			function green3(){
+				document.getElementById('box2').style.backgroundColor="green";
+			}
+			function green4(){
+				document.getElementById('box3').style.backgroundColor="green";
+			}
+/*----------------------------------------BLUE--------------------------*/	
+			function blue1(){
+				document.getElementById('longbox').style.backgroundColor="blue";
+			}
+			function blue2(){
+				document.getElementById('box1').style.backgroundColor="blue";
+			}
+			function blue3(){
+				document.getElementById('box2').style.backgroundColor="blue";
+			}
+			function blue4(){
+				document.getElementById('box3').style.backgroundColor="blue";
+			}	
+/*---------------------------RIGHT-------------------------------------*/
+		function right(){
+			if(document.getElementById('longbox').style.left=="65%")
+			{
+				alert("MOVE NOT POSSIBLE");
+			}
+			else{
+			document.getElementById('longbox').style.left="65%";
+			document.getElementById('box1').style.left="10%";
+			document.getElementById('box2').style.left="10%";
+			document.getElementById('box3').style.left="10%";
+		        }
+
+		}
+/*------------------------LEFT-----------------------------------------*/						
+        function left(){
+        	if(document.getElementById('longbox').style.left=="10%")
+			{
+				alert("MOVE NOT POSSIBLE");
+			}
+			else{	
+			document.getElementById('longbox').style.left="10%";
+			document.getElementById('box1').style.left="40%";
+			document.getElementById('box2').style.left="40%";
+			document.getElementById('box3').style.left="40%";
+				}
+		}
+/*---------------------UP-------------------------------------------*/
+		function up(){
+		var x = document.getElementById("longbox");
+		var y=document.getElementById("box1");
+ 	   		var height1 = x.offsetHeight;
+ 	   		var height2= y.offsetHeight;
+ 	   		if(height1 <= height2) {alert("MOVE NOT POSSIBLE");}
+   		 	else{
+   		 		height1 = height1-10;
+   			x.style.height = height1 + 'px';}
+		}
+/*-----------------------------DOWN---------------------------------*/
+ 		function down(){
+ 			var x = document.getElementById("longbox");
+			var y=document.getElementById("box1");
+ 	   		var height1 = x.offsetHeight;
+ 	   		var height2= y.offsetHeight; 
+ 	   		height2 *=(3.25);
+ 	   		if((height1+5) >= height2){ alert("MOVE NOT POSSIBLE"); }	// +5 is for error correction of height2
+ 	   		else{
+ 	   			height1=height1+10;
+ 	   			x.style.height= height1+ 'px';
+ 	   		}		
+ 		}		
+/*--------------------------MOVE ----------------------------*/
+function move(x) // 1,2,3=UP; 4,5,6=DOWN
+{
+	var p=document.getElementById("box1");
+	var q=document.getElementById("box2");
+	var r=document.getElementById("box3");
+	var top1=p.offsetTop;
+	var top2=q.offsetTop+1;
+	var top3=r.offsetTop;
+	var b1;var b2; var b3; // b1,b2,b3 are relative positions of the boxes
+   
+   if((top1<top2)||(top1<top3))
+   {
+		if((top1>top2)||(top1>top3))
+           {   b1=2;
+		if(top2<top3){b2=1;b3=3;}
+		else{b2=3;b3=1;}
+	       }
+	       else{
+	     b1=1;
+		if(top2<top3){b2=2;b3=3;}
+		else{b2=3;b3=2;}
+	       }
+	}
+	else{
+		b1=3;
+		if(top2<top3){b2=1;b3=2;}
+		else{b3=1;b2=2;}
+	}
+
+ if(x==1){
+  			
+ 			if(b1==1){alert("MOVE NOT POSSIBLE");}
+ 			if(b1==2){
+ 				if(b2==1){
+ 					
+ 					p.style.top= top2 +'px';
+ 					q.style.top= top1 +'px';
+
+
+
+				}
+				else{
+					p.style.top= top3 +'px';
+					r.style.top= top1 +'px';
+				}
+
+ 			}
+ 			if(b1==3){
+ 				if(b2==2){
+ 					p.style.top= top2 +'px';
+ 					q.style.top= top1 +'px';
+				}
+				else{
+					p.style.top= top3 +'px';
+					r.style.top= top1 +'px';
+				}
+ 			}
+  
+         }
+ if(x==2) {
+ 			if(b2==1){alert("MOVE NOT POSSIBLE");}
+ 			if(b2==2){
+ 				if(b1==1){
+ 					p.style.top= top2 +'px';
+ 					q.style.top= top1 +'px';
+				}
+				else{
+					q.style.top= top3 +'px';
+					r.style.top= top2 +'px';
+				}
+
+ 			}
+ 			if(b2==3){
+ 				if(b1==2){
+ 					p.style.top= top2 +'px';
+ 					q.style.top= top1 +'px';
+				}
+				else{
+					q.style.top= top3 +'px';
+					r.style.top= top2 +'px';
+				}
+ 			}
+          }        
+
+if(x==3){
+		if(b3==1){alert("MOVE NOT POSSIBLE");}
+ 			if(b3==2){
+ 				if(b1==1){
+ 					p.style.top= top3 +'px';
+ 					r.style.top= top1 +'px';
+				}
+				else{
+					q.style.top= top3 +'px';
+					r.style.top= top2 +'px';
+				}
+
+ 			}
+ 			if(b3==3){
+ 				if(b1==2){
+ 					p.style.top= top3 +'px';
+ 					r.style.top= top1 +'px';
+				}
+				else{
+					q.style.top= top3 +'px';
+					r.style.top= top2 +'px';
+				}
+ 			}
+}
+if(x==4){
+		if(b1==3){alert("MOVE NOT POSSIBLE");}
+ 			if(b1==2){
+ 				if(b2==3){
+ 					p.style.top= top2 +'px';
+ 					q.style.top= top1 +'px';
+				}
+				else{
+					p.style.top= top3 +'px';
+					r.style.top= top1 +'px';
+				}
+
+ 			}
+ 			if(b1==1){
+ 				if(b2==2){
+ 					p.style.top= top2 +'px';
+ 					q.style.top= top1 +'px';
+				}
+				else{
+					p.style.top= top3 +'px';
+					r.style.top= top1 +'px';
+				}
+ 			}
+
+}
+if(x==5){
+		if(b2==3){alert("MOVE NOT POSSIBLE");}
+ 			if(b2==2){
+ 				if(b1==3){
+ 					p.style.top= top2 +'px';
+ 					q.style.top= top1 +'px';
+				}
+				else{
+					q.style.top= top3 +'px';
+					r.style.top= top2 +'px';
+				}
+
+ 			}
+ 			if(b2==1){
+ 				if(b1==2){
+ 					p.style.top= top2 +'px';
+ 					q.style.top= top1 +'px';
+				}
+				else{
+					q.style.top= top3 +'px';
+					r.style.top= top2 +'px';
+				}
+ 			}
+
+}
+if(x==6){
+		if(b3==3){alert("MOVE NOT POSSIBLE");}
+ 			if(b3==2){
+ 				if(b1==3){
+ 					p.style.top= top3 +'px';
+ 					r.style.top= top1 +'px';
+				}
+				else{
+					q.style.top= top3 +'px';
+					r.style.top= top2 +'px';
+				}
+
+ 			}
+ 			if(b3==1){
+ 				if(b1==2){
+ 					p.style.top= top3 +'px';
+ 					r.style.top= top1 +'px';
+				}
+				else{
+					q.style.top= top3 +'px';
+					r.style.top= top2 +'px';
+				}
+ 			}
+}
+
+
+}
+
+
+		</script>
+	</body>
+</html>

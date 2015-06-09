@@ -9,69 +9,69 @@
 		
 			<div id="longbox">
 				<div id="colors">
-					<img src="./img/r.png" width="24%" height="30%" onClick="red1();">
-					<img src="./img/g.png" width="24%" height="30%" onClick="green1();">
-					<img src="./img/b.png" width="24%" height="30%" onClick="blue1();">
+					<button class="color1" onClick="maroon1();">
+					<button class="color2" onClick="green1();">
+					<button class="color3" onClick="blue1();">
 				</div>
 				<div id="arrows">
 					<div id="left">
-						<img src="./img/left.png" width="22%" height="90%" onClick="left();">
-						<img src="./img/right.png" width="22%" height="90%" onClick="right();">					
+						<button class="arrow1" onClick="left();">
+						<button class="arrow2" onClick="right();">					
 					</div>
 					<div id="up">
-						<img src="./img/up.png" width="22%" height="90%" onClick="up();">
-						<img src="./img/down.png" width="22%" height="90%" onClick="down();">	
+						<button class="arrow3" onClick="up();">
+						<button class="arrow4" onClick="down();">	
 					</div>
 				</div>
 		    </div>
 				<div id="box1">
 					<div id="colors">
-						<img src="./img/r.png" width="15%" height="50%" onClick="red2();">
-						<img src="./img/g.png" width="15%" height="50%" onClick="green2();">
-						<img src="./img/b.png" width="15%" height="50%" onClick="blue2();">
+						<button class="color1" onClick="maroon2();">
+						<button class="color2" onClick="green2();">
+						<button class="color3" onClick="blue2();">
 					</div>
 					<div id="arrows">
-						<img src="./img/up.png" width="70%" height="40%" onClick="move(1);">
-						<img src="./img/down.png" width="70%" height="40%" onClick="move(4);">	
+						<button class="arrow3" onClick="move(1);">
+						<button class="arrow4" onClick="move(4);">	
 					</div>
 				</div>
 				<div id="box2">
 					<div id="colors">
-						<img src="./img/r.png" width="15%" height="50%" onClick="red3();">
-						<img src="./img/g.png" width="15%" height="50%"  onClick="green3();">
-						<img src="./img/b.png" width="15%" height="50%"  onClick="blue3();">
+						<button class="color1" onClick="maroon3();">
+						<button class="color2" onClick="green3();">
+						<button class="color3"  onClick="blue3();">
 					</div>
 					<div id="arrows">
-						<img src="./img/up.png" width="70%" height="40%" onClick="move(2);">
-						<img src="./img/down.png" width="70%" height="40%" onClick="move(5);">	
+						<button class="arrow3" onClick="move(2);">
+						<button class="arrow4" onClick="move(5);">	
 					</div>
 				</div>
 				<div id="box3">
 					<div id="colors">
-						<img src="./img/r.png" width="15%" height="50%" onClick="red4();">
-						<img src="./img/g.png" width="15%" height="50%" onClick="green4();">
-						<img src="./img/b.png" width="15%" height="50%" onClick="blue4();">
+						<button class="color1" onClick="maroon4();">
+						<button class="color2" onClick="green4();">
+						<button class="color3" onClick="blue4();">
 					</div>
 					<div id="arrows">
-						<img src="./img/up.png" width="70%" height="40%" onClick="move(3);">
-						<img src="./img/down.png" width="70%" height="40%" onClick="move(6);" >	
+						<button class="arrow3" onClick="move(3);">
+						<button class="arrow4" onClick="move(6);" >	
 					</div>
 				</div>
 			
 	
 		<script type="text/javascript">
-/*----------------------------------------------------RED--------------*/
-			function red1(){
-				document.getElementById('longbox').style.backgroundColor="red";
+/*----------------------------------------------------maroon--------------*/
+			function maroon1(){
+				document.getElementById('longbox').style.backgroundColor="maroon";
 			}
-			function red2(){
-				document.getElementById('box1').style.backgroundColor="red";
+			function maroon2(){
+				document.getElementById('box1').style.backgroundColor="maroon";
 			}
-			function red3(){
-				document.getElementById('box2').style.backgroundColor="red";
+			function maroon3(){
+				document.getElementById('box2').style.backgroundColor="maroon";
 			}
-			function red4(){
-				document.getElementById('box3').style.backgroundColor="red";
+			function maroon4(){
+				document.getElementById('box3').style.backgroundColor="maroon";
 			}
 /*------------------------------------------GREEN--------------*/		
 			function green1(){
@@ -106,33 +106,40 @@
 				alert("MOVE NOT POSSIBLE");
 			}
 			else{
+			
 			document.getElementById('longbox').style.left="65%";
-			document.getElementById('box1').style.left="10%";
-			document.getElementById('box2').style.left="10%";
-			document.getElementById('box3').style.left="10%";
+			document.getElementById('box1').style.left="15%";
+			document.getElementById('box2').style.left="15%";
+			document.getElementById('box3').style.left="15%";
+			mover() ;
+			longer();
+            setTimeout(nmove,1500);
 		        }
 
 		}
 /*------------------------LEFT-----------------------------------------*/						
         function left(){
-        	if(document.getElementById('longbox').style.left=="10%")
+        	if(document.getElementById('longbox').style.left=="15%")
 			{
 				alert("MOVE NOT POSSIBLE");
 			}
 			else{	
-			document.getElementById('longbox').style.left="10%";
+			document.getElementById('longbox').style.left="15%";
 			document.getElementById('box1').style.left="40%";
 			document.getElementById('box2').style.left="40%";
 			document.getElementById('box3').style.left="40%";
+			mover() ;
+			longer();
+            setTimeout(nmove,1500);
 				}
 		}
 /*---------------------UP-------------------------------------------*/
 		function up(){
 		var x = document.getElementById("longbox");
-		var y=document.getElementById("box1");
+		  
  	   		var height1 = x.offsetHeight;
- 	   		var height2= y.offsetHeight;
- 	   		if(height1 <= height2) {alert("MOVE NOT POSSIBLE");}
+ 	   	
+ 	   		if(height1 <= 200) {alert("MOVE NOT POSSIBLE");}
    		 	else{
    		 		height1 = height1-10;
    			x.style.height = height1 + 'px';}
@@ -140,11 +147,11 @@
 /*-----------------------------DOWN---------------------------------*/
  		function down(){
  			var x = document.getElementById("longbox");
-			var y=document.getElementById("box1");
+			
  	   		var height1 = x.offsetHeight;
- 	   		var height2= y.offsetHeight; 
- 	   		height2 *=(3.25);
- 	   		if((height1+5) >= height2){ alert("MOVE NOT POSSIBLE"); }	// +5 is for error correction of height2
+ 	   		
+ 	   		
+ 	   		if((height1) >= 600){ alert("MOVE NOT POSSIBLE"); }	// +5 is for error correction of height2
  	   		else{
  	   			height1=height1+10;
  	   			x.style.height= height1+ 'px';
@@ -157,7 +164,7 @@ function move(x) // 1,2,3=UP; 4,5,6=DOWN
 	var q=document.getElementById("box2");
 	var r=document.getElementById("box3");
 	var top1=p.offsetTop;
-	var top2=q.offsetTop+1;
+	var top2=q.offsetTop;
 	var top3=r.offsetTop;
 	var b1;var b2; var b3; // b1,b2,b3 are relative positions of the boxes
    
@@ -188,13 +195,14 @@ function move(x) // 1,2,3=UP; 4,5,6=DOWN
  					
  					p.style.top= top2 +'px';
  					q.style.top= top1 +'px';
-
-
-
+ 					move1() ;
+                    setTimeout(nmove,1500);
 				}
 				else{
 					p.style.top= top3 +'px';
 					r.style.top= top1 +'px';
+					move2() ;
+                    setTimeout(nmove,1500);
 				}
 
  			}
@@ -202,10 +210,15 @@ function move(x) // 1,2,3=UP; 4,5,6=DOWN
  				if(b2==2){
  					p.style.top= top2 +'px';
  					q.style.top= top1 +'px';
+ 					move1() ;
+                    setTimeout(nmove,1500);
+
 				}
 				else{
 					p.style.top= top3 +'px';
 					r.style.top= top1 +'px';
+					move2() ;
+                    setTimeout(nmove,1500);
 				}
  			}
   
@@ -216,10 +229,15 @@ function move(x) // 1,2,3=UP; 4,5,6=DOWN
  				if(b1==1){
  					p.style.top= top2 +'px';
  					q.style.top= top1 +'px';
+ 					move1() ;
+                    setTimeout(nmove,1500);
+
 				}
 				else{
 					q.style.top= top3 +'px';
 					r.style.top= top2 +'px';
+				    move3() ;
+                    setTimeout(nmove,1500);
 				}
 
  			}
@@ -227,10 +245,15 @@ function move(x) // 1,2,3=UP; 4,5,6=DOWN
  				if(b1==2){
  					p.style.top= top2 +'px';
  					q.style.top= top1 +'px';
+ 					move1() ;
+                    setTimeout(nmove,1500);
+
 				}
 				else{
 					q.style.top= top3 +'px';
 					r.style.top= top2 +'px';
+					move3() ;
+                    setTimeout(nmove,1500);
 				}
  			}
           }        
@@ -241,10 +264,14 @@ if(x==3){
  				if(b1==1){
  					p.style.top= top3 +'px';
  					r.style.top= top1 +'px';
+ 					move2() ;
+                    setTimeout(nmove,1500);
 				}
 				else{
 					q.style.top= top3 +'px';
 					r.style.top= top2 +'px';
+					move3() ;
+                    setTimeout(nmove,1500);
 				}
 
  			}
@@ -252,10 +279,14 @@ if(x==3){
  				if(b1==2){
  					p.style.top= top3 +'px';
  					r.style.top= top1 +'px';
+ 					move2() ;
+                    setTimeout(nmove,1500);
 				}
 				else{
 					q.style.top= top3 +'px';
 					r.style.top= top2 +'px';
+					move3() ;
+                    setTimeout(nmove,1500);
 				}
  			}
 }
@@ -265,10 +296,15 @@ if(x==4){
  				if(b2==3){
  					p.style.top= top2 +'px';
  					q.style.top= top1 +'px';
+ 					move1() ;
+                    setTimeout(nmove,1500);
+
 				}
 				else{
 					p.style.top= top3 +'px';
 					r.style.top= top1 +'px';
+					move2() ;
+                    setTimeout(nmove,1500);
 				}
 
  			}
@@ -276,10 +312,15 @@ if(x==4){
  				if(b2==2){
  					p.style.top= top2 +'px';
  					q.style.top= top1 +'px';
+ 					move1() ;
+                    setTimeout(nmove,1500);
+
 				}
 				else{
 					p.style.top= top3 +'px';
 					r.style.top= top1 +'px';
+					move2() ;
+                    setTimeout(nmove,1500);
 				}
  			}
 
@@ -290,10 +331,15 @@ if(x==5){
  				if(b1==3){
  					p.style.top= top2 +'px';
  					q.style.top= top1 +'px';
+ 					move1() ;
+                    setTimeout(nmove,1500);
+
 				}
 				else{
 					q.style.top= top3 +'px';
 					r.style.top= top2 +'px';
+					move3() ;
+                    setTimeout(nmove,1500);
 				}
 
  			}
@@ -301,10 +347,15 @@ if(x==5){
  				if(b1==2){
  					p.style.top= top2 +'px';
  					q.style.top= top1 +'px';
+ 					move1() ;
+                    setTimeout(nmove,1500);
+
 				}
 				else{
 					q.style.top= top3 +'px';
 					r.style.top= top2 +'px';
+					move3() ;
+                    setTimeout(nmove,1500);
 				}
  			}
 
@@ -315,10 +366,14 @@ if(x==6){
  				if(b1==3){
  					p.style.top= top3 +'px';
  					r.style.top= top1 +'px';
+ 					move2() ;
+                    setTimeout(nmove,1500);
 				}
 				else{
 					q.style.top= top3 +'px';
 					r.style.top= top2 +'px';
+					move3() ;
+                    setTimeout(nmove,1500);
 				}
 
  			}
@@ -326,16 +381,64 @@ if(x==6){
  				if(b1==2){
  					p.style.top= top3 +'px';
  					r.style.top= top1 +'px';
+ 					move2() ;
+                    setTimeout(nmove,1500);
 				}
 				else{
 					q.style.top= top3 +'px';
 					r.style.top= top2 +'px';
+					move3() ;
+                    setTimeout(nmove,1500);
 				}
  			}
 }
 
 
 }
+function nmove(){
+	var p=document.getElementById("box1");
+	var q=document.getElementById("box2");
+	var r=document.getElementById("box3");
+	var s=document.getElementById("longbox");
+	p.className = 'nonmove';
+    q.className = 'nonmove';
+    r.className = 'nonmove';
+    s.className = 'nonmove';
+}
+function mover(){
+	var p=document.getElementById("box1");
+	var q=document.getElementById("box2");
+	var r=document.getElementById("box3");
+	p.className = 'mover';
+    q.className = 'mover';
+    r.className = 'mover';	
+}
+function longer(){
+	var s=document.getElementById("longbox");
+	s.className='long';
+}
+function move1(){
+	var p=document.getElementById("box1");
+	var q=document.getElementById("box2");
+	var r=document.getElementById("box3");
+	p.className = 'move';
+    q.className = 'move';
+}
+function move2(){
+	var p=document.getElementById("box1");
+	var q=document.getElementById("box2");
+	var r=document.getElementById("box3");
+	p.className = 'move';
+    r.className = 'move';
+}
+function move3(){
+	var p=document.getElementById("box1");
+	var q=document.getElementById("box2");
+	var r=document.getElementById("box3");
+	r.className = 'move';
+    q.className = 'move';
+}
+
 
 
 		</script>

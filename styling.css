@@ -60,7 +60,7 @@ body{
 position:absolute;	
 width:20%;
 left:15%;
-top:30px;
+top:10px;
 border: 1px solid #888888;
 height:600px;
 background-color:maroon; 
@@ -155,7 +155,7 @@ bottom:4%;
 
 #box1{
 	position: absolute;
-	top:30px;
+	top:10px;
 	right:15%;
 	width:45%;
 	height:190px;
@@ -167,7 +167,7 @@ bottom:4%;
 }
 #box2{
 	position: absolute;
-	top:235px;
+	top:215px;
 	right:15%;
 	width:45%;
 	height:190px;
@@ -179,7 +179,7 @@ bottom:4%;
 
 #box3{
 	position: absolute;
-	top:440px;
+	top:420px;
 	right:15%;
 	width:45%;
 	height:190px;
